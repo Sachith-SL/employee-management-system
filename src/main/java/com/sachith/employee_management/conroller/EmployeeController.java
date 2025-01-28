@@ -16,8 +16,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping()
-    public Employee create(@RequestBody Employee employee) {
-        return employeeService.create(employee);
+    public ResponseEntity<EmployeePayload> create(@RequestBody EmployeePayload payload) {
+        return ResponseEntity.ok(employeeService.create(payload));
     }
 
     @GetMapping()
@@ -26,17 +26,17 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public Employee readById(@PathVariable Integer id) {
-        return employeeService.readById(id);
+    public ResponseEntity<EmployeePayload> readById(@PathVariable Integer id) {
+        return ResponseEntity.ok(employeeService.readById(id));
     }
 
     @PutMapping("/{id}")
-    public Employee updateById(@PathVariable Integer id, @RequestBody Employee user) {
-        return employeeService.updateById(id, user);
+    public ResponseEntity<EmployeePayload> updateById(@PathVariable Integer id, @RequestBody Employee employee) {
+        return ResponseEntity.ok(employeeService.updateById(id, employee));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(Integer id) {
-        employeeService.deleteById(id);
+    public ResponseEntity<EmployeePayload> deleteById(@PathVariable Integer id) {
+        return ResponseEntity.ok(employeeService.deleteById(id));
     }
 }

@@ -10,11 +10,11 @@ public interface EmployeeService {
     EmployeePayload readAll();
 
 
-    Employee create(Employee employee);
+    EmployeePayload create(EmployeePayload payload);
 
-    Employee readById(Integer id);
+    EmployeePayload readById(Integer id);
 
-    Employee updateById(Integer id, Employee employee);
+    EmployeePayload updateById(Integer id, Employee employee);
 
-    void deleteById(Integer id);
+    EmployeePayload deleteById(Integer id);
 }
